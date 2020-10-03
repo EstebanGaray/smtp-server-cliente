@@ -1,5 +1,5 @@
 # smtp-server-cliente
-servidor creado a partir de haraka https://github.com/haraka/Haraka
+servidor creado a partir de haraka https://github.com/haraka/Haraka \
 cliente creado apartir de smpt-cli https://github.com/mludvig/smtp-cli
 Ejecutar server:
 construya el dockerfile
