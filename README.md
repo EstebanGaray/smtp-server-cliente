@@ -16,3 +16,4 @@ ex: \
 sudo docker run -it --net=host 9c1bf33e1f16 --verbose --server localhost:25 --from example@gmail.com --to my@haraka.test --subject example --body-plain "texto" \
 --to tiene que ser hacia un mail terminado en @haraka.test \
 esto se puede modificar agregando a la lista de host que mails quiere haceptar \
+enlace a video de muestra:https://youtu.be/eLVpkrMywdc
