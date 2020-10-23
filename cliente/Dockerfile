@@ -11,4 +11,4 @@ RUN apt-get -y update \
 
 WORKDIR "/smtp-cli"
 
- ENTRYPOINT ["./smtp-cli"]
+ #ENTRYPOINT ["./smtp-cli"]
