@@ -17,3 +17,4 @@ sudo docker run -it --net=host 9c1bf33e1f16 --verbose --server localhost:25 --fr
 --to tiene que ser hacia un mail terminado en @haraka.test \
 esto se puede modificar agregando a la lista de host que mails quiere haceptar \
 enlace a video de muestra:https://youtu.be/eLVpkrMywdc
+enlace a video en que se editan paquetes:https://youtu.be/HqBmPB6lfjs
