@@ -9,11 +9,11 @@ sudo docker run -ti -p 25:25 ID \
 Ejecutar cliente: \
 construya el dockerfile \
 sudo docker build .una vez termine ya puede usar el cliente con: \
-sudo docker run -it ID --verbose --server IP-HOST:25 \
-o \
-sudo docker run -it --net=host ID --verbose --server localhost:25 \
-ex: \
-sudo docker run -it --net=host 9c1bf33e1f16 --verbose --server localhost:25 --from example@gmail.com --to my@haraka.test --subject example --body-plain "texto" \
+sudo docker run -it ID \
+ex: sudo docker run -it 9c1bf33e1f16 \
+algunos comandos basicos para usar el cliente \
+./smtp-cli--verbose --server IP-HOST:puerto(25 por defecto) \
+./smtp-cli--verbose --server IP-HOST:puerto(25 por defecto) --from example@gmail.com --to my@haraka.test --subject example --body-plain "texto" \
 --to tiene que ser hacia un mail terminado en @haraka.test \
 esto se puede modificar agregando a la lista de host que mails quiere haceptar \
 enlace a video de muestra:https://youtu.be/eLVpkrMywdc \
