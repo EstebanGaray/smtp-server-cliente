@@ -19,3 +19,4 @@ esto se puede modificar agregando a la lista de host que mails quiere haceptar \
 enlace a video de muestra:https://youtu.be/eLVpkrMywdc \
 enlace a video en que se editan paquetes:https://youtu.be/HqBmPB6lfjs
 enlace a video de metricas: https://youtu.be/_y58YE8BWXo
+enlace a video snort:https://youtu.be/N7KlsCaqTzg
