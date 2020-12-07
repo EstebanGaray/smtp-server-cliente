@@ -1,0 +1,21 @@
+#alert icmp 172.17.0.2 any -> any any (msg:"ICMP first Rule"; sid:1000001; rev:1; classtype:icmp-event;)
+#regla pcre
+alert tcp any any -> $HOME_NET 25 (msg:"smtp command"; \
+pcre:!"/[Ee][Hh][Ll][Oo]|[Mm][aA][iI][lL] [Ff][Rr][oO][mM]|[rR][Cc][Pp][Tt] [Tt][Oo]|[Dd][Aa][Tt][Aa]|[Rr][Ss][Ee][Tt]|[Qq][Uu][Ii][Tt]|Content-Disposition:|Content-Transfer-Encoding|Content-Type:|MIME-Version:|Date|From|To|X-Mailer:|Message-Id|=/"; \
+sid:1000002;rev:2)
+#alert tcp $HOME_NET 25 -> !$HOME_NET any (msg:"BACKDOOR netbus active";flow:from_server,established;)
+# DoS Flood Detection flow
+alert tcp any any -> $HOME_NET 25 (msg:"Muchos paquetes provenientes de la misma direccion"; \
+flow:to_server; \
+detection_filter:track by_dst,  count 100, seconds 60; \
+sid:25101; rev:2;)
+#dsize
+alert tcp any any -> $HOME_NET 25 (msg:"linea de comando muy larga"; \
+dsize:>300;sid:1651861;flow:to_server; \
+pcre:"/[Ee][Hh][Ll][Oo]|[Mm][aA][iI][lL] [Ff][Rr][oO][mM]|[rR][Cc][Pp][Tt] [Tt][Oo]|[Dd][Aa][Tt][Aa]|[Rr][Ss][Ee][Tt]|[Qq][Uu][Ii][Tt]/";)
+#activete/dynamic
+alert tcp $EXTERNAL_NET any -> $HOME_NET any \
+ (msg:”Escaneo ping con nmap”;flags:A;ack:0;reference:arachnids,28;classtype:attempted-recon; sid:628;rev:1;tag:session,50,packets;)
+#offset
+alert tcp $HOME_NET 25 -> any any \
+(msg:"time out";content:"timeout";offset:68;sid:8546;)
